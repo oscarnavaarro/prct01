@@ -1,0 +1,209 @@
+Escuela Superior de Ingenier´ıa y Tecnolog´ıa
+Grado en Ingenier´ıa Inform´atica
+Area: Lenguajes y Sistemas Inform´aticos ´
+Lenguajes y Paradigmas de Programaci´on
+Pr´actica de laboratorio #1
+1. Iniciar una sesi´on de trabajo en GNU-Linux.
+2. ¿Qu´e es el servicio IaaS de la ULL? ( https://iaas.ull.es/ )
+El concepto de Infraestructura como Servicio (IaaS, Infrastructure as a Service) es uno de los
+tres modelos fundamentales en el campo de la computaci´on en la nube (cloud computing), junto
+con el de Plataforma como Servicio (PaaS, Platform as a Service) y el de Software como Servicio
+(SaaS, Software as a Service). Al igual que todos los servicios en la nube, IaaS proporciona
+acceso a recursos inform´aticos situados en un entorno virtualizado, la “nube” (cloud), a trav´es
+de una conexi´on p´ublica, que suele ser Internet. En el caso de IaaS, los recursos inform´aticos
+ofrecidos consisten, en particular, en hardware virtualizado, o, en otras palabras, infraestructura
+de procesamiento. F´ısicamente, el repertorio de recursos de hardware disponibles procede de
+multitud de servidores y redes, generalmente distribuidos entre numerosos centros de datos, de
+cuyo mantenimiento se encarga el proveedor del servicio en la nube. El cliente, por su parte,
+obtiene acceso a los componentes virtualizados para construir con ellos su propia plataforma
+inform´atica. Se ha solicitado una m´aquina virtual para cada alumno de manera que la puedan
+administrar.
+3. Acceda al IasS del Servicio TIC de la ULL.
+Para ello abra en un navegador el sitio: ( https://iaas.ull.es/ )
+4. En el panel de entrada de oVirt (Open Virtualization Manager ) que se despliega:
+a) Introduzca como Nombre de Usuario su alu??????????.
+b) Introduzca su contrase˜na institucional.
+c) Seleccione como perfil el de la ull.
+5. Cuando se despliegue el panel de administraci´on de oVirt:
+a) Configure la consola de su m´aquina virtual.
+b) La m´aquina virtual que se le ha asignado tiene la etiqueta “lpp-2425”, 1gb de memoria y
+una cpu. Pulse el bot´on Tomar una maquina ´ .
+c) Pulse sobre la misma para desplegar la ventana con botones para para Ejecutar, Suspender, Apagar, o Reiniciar la m´aquina virtual.
+d) Obtener la direcci´on ip de la m´aquina virtual que se muestra en la secci´on “Detalles”.
+e) Otra forma de obtener la direcci´on ip de la m´aquina virtual, es a trav´es de la consola
+que se despliega en la ventana emergente del bot´on Consola y la opciones VNC (Virtual
+Network Computing) que es una herramienta software que permite controlar un servidor
+remotamente a trav´es de un cliente. Tambi´en se le denomina software de escritorio remoto.
+1) Introduzca como “Nombre de usuario”: usuario y como “Contrase˜na”: usuario
+2) Cambie la contrase˜na de la cuenta usuario
+3) Ejecute la orden: ifconfig
+1
+4) Copie la informaci´on asociada a la etiqueta eth0 con nombre Direc. inet. Ha de tener
+la forma: ddd.ddd.ddd.ddd
+5) Se recomienda no utilizar la consola de la interfaz web (no funciona).
+f ) De manera opcional se puede obtener la direcci´on ip de la m´aquina virtual, a trav´es de la
+p´agina web ( https://iaas.ull.es/ovirtadmin/usuarios/mismaquinas )
+Copie la informaci´on asociada a la columna Direcciones IP con nombre nic1.. Ha de
+tener la forma: ddd.ddd.ddd.ddd
+6. Abra una terminal.
+7. Con´ectese de forma remota a la m´aquina virtual asignada ( ssh usuario@ddd.ddd.ddd.ddd )
+Si no es posible, tenga en cuenta que para poder establecer la conexi´on es necesario estar en la
+red privada de la ull.
+Si la conexi´on es externa seguir las instrucciones que dan desde el Servicio TIC para crear una
+red privada virtual: VPN - Virtual Private Network (http://www.ull.es/stic/tag/vpn/).
+Desde el Centro de c´alculo de la esit, a pesar de estar dentro de la red privada de la ull, es
+necesario abrir en un navegador http://acceso.ull.es y autenticarse con el ‘Nombre de
+Usuario’ y la ‘contrase˜na institucional’.
+8. Opcionalmente actualice el sistema operativo de la m´aquina virtual (puede tardar m´as de media
+hora).
+9. Compruebe que git est´a instalado ( usuario@ubuntu:~$ git --version )
+10. En el home cree un directorio de trabajo para la asignatura “Lenguajes y Paradigmas de Programaci´on”. (cd; mkdir LPP)
+11. ¿Qu´e es git?. (man git)
+El control de versiones es el registro de los cambios realizados sobre un archivo o conjunto de
+archivos a lo largo del tiempo, de modo que se puedan recuperar versiones espec´ıficas en un
+momento dado.
+Git es un software para control de versiones. Su principal caract´ıstica es que es distribuido,
+adem´as, permite el mantenimiento de versiones de aplicaciones cuando ´estas tienen un gran
+n´umero de archivos de c´odigo fuente de manera eficiente y fiable.
+12. Configure git con el nombre de usuario de manera que pueda etiquetar de forma correcta las
+actualizaciones que este realice. ( git config --global user.name "Nombre Apellido" )
+13. Configure git con la direcci´on de correo electr´onico para asociarla a las actualizaciones que se
+hagan en el repositorio git. ( git config --global user.email "alu??????????@ull.edu.es" )
+14. git permite almacenar la configuraci´on global de un usuario en el archivo .gitconfig. Este
+archivo se encuentra en el directorio home del usuario. git almacena el remitente y el nombre del
+autor de un cambio en cada confirmaci´on en el repositorio. Esta informaci´on se puede almacenar
+en el fichero de configuraci´on global de manera que no se solicite cada vez que se haga una
+confirmaci´on. Muestre el contenido del fichero .gitconfig (cat .gitconfig)
+2
+15. Configure git de manera que no sea necesario introducir la contrase˜na cada vez que se hace una
+actualizaci´on. ( git config --global credential.helper cache )
+16. Configure git de manera que todos los cambios se empujen siempre en el repositorio git.
+( git config --global push.default "matching" )
+17. Configure git de manera que se eviten las confirmaciones (commits) innecesarias.
+( git config --global branch.autosetuprebase always )
+18. Configure git de manera que el nombre de la rama inicial sea ‘main’ en lugar de ‘master’.
+( git config --global init.defaultBranch main )
+19. Muestre las configuraciones globales de git. ( git config --list )
+20. Sit´uese en el directorio de la asignatura “Lenguajes y Paradigmas de Programaci´on” esto es
+en el directorio LPP (cd LPP).
+21. Muestre el contenido del directorio actual (ls -la).
+22. Cree un nuevo directorio denominado prct01 (mkdir prct01). Este ser´a el directorio de trabajo
+durante la realizaci´on de esta pr´actica.
+23. Sit´uese en el directorio prct01 y cree la estructura de directorios que le permita tener subcarpetas
+para el c´odigo y los documentos, es decir:
+un subdirectorio src
+un subdirectorio docs
+24. Guarde el fichero pdf que contiene el enunciado de esta pr´actica en el directorio docs.
+25. Situado en el directorio de trabajo, inicial´ıcelo para que sea un repositorio git.
+( git init )
+26. Compruebe que se crea el directorio .git (ls -la).
+27. Cree contenidos en el directorio de trabajo. Ejecute los comandos:
+touch test01
+touch test02
+touch src/src01
+touch src/src02
+ls > test01
+28. Compruebe el contenido del directorio de trabajo (ls -la).
+3
+29. Antes de realizar una confirmaci´on en un repositorio Git es necesario marcar qu´e cambios se deben confirmar a˜nadiendo los nuevos ficheros y los ficheros cambiados al ´ındice del repositorio
+git, esto es, al ´area de preparaci´on. Esto crea una instant´anea de los ficheros afectados. Si despu´es de la instant´anea, se cambia uno de los ficheros antes de confirmarlos, es necesario a˜nadir
+el fichero de nuevo al ´ındice para registrar los nuevos cambios. A˜nada todos los ficheros y subdirectorios del directorio actual al ´ındice del repositorio git. ( git add . )
+30. Confirme (commit) los cambios del ´ındice en el repositorio git local.
+( git commit -m "Primera confirmaci´on - vac´ıos" )
+31. Muestre el fichero con las confirmaciones realizadas en el repositorio hasta el momento.
+( git log )
+32. Modifique los ficheros del directorio de trabajo. (
+echo "Hola desde el fichero test01" > test01
+echo "Hola desde el fichero test02" > test02
+)
+33. Compruebe las diferencias entre los ficheros anteriores y los nuevos. ( git diff )
+34. Confirme (commit) los cambios del ´ındice en el repositorio git local. La opci´on -a permite registrar los
+cambios de los ficheros modificados, pero no a˜nade ficheros nuevos autom´aticamente al ´ındice.
+( git commit -a -m "Diciendo hola" )
+35. Modifique los ficheros del directorio de trabajo actual. (
+echo "Adios desde el fichero test01" > test01
+echo "Adios desde el fichero test02" > test02
+)
+36. Muestre el estado del repositorio git local, esto es, qu´e ficheros han cambiado, cu´ales son nuevos y cu´ales
+han sido borrados. ( git status )
+37. Muestre las diferencias entre los ficheros sin confirmar y los de la ´ultima confirmaci´on. ( git diff )
+38. A˜nada los cambios al ´ındice del repositorio git y conf´ırmelos.
+( git add . && git commit -m "Maaaas cambios - con un error sint´actico en el mensaje" )
+39. Muestre la historia de las distintas confirmaciones (commits) en la rama actual. ( git log )
+40. Arregle el error en el mensaje de la ´ultima confirmaci´on (commit) del apartado 38.
+( git commit --amend -m "M´as cambios - ahora sin errores" )
+41. Muestre la historia de las distintas confirmaciones (commits) en la rama actual. ( git log )
+4
+42. Cree un fichero y p´ongalo bajo el control de versiones. (
+touch sinsentido.txt
+git add . && git commit -m "se ha creado un nuevo fichero sin sentido"
+)
+43. Elimine el fichero del directorio. ( rm sinsentido.txt )
+44. A˜nada los cambios al ´ındice del repositorio git y conf´ırmelos.
+( git add . && git commit -m "se ha eliminado el fichero sinsentido.txt" )
+45. ¿Qu´e es GitHub? ( http://github.com )
+GitHub es una plataforma para la organizaci´on y almacenamiento de c´odigo con funcionalidades que
+permiten el control de versiones y la colaboraci´on en la realizaci´on de proyectos.
+46. Cree una cuenta en GitHub.
+a) Abra en el navegador el sitio de GitHub: http://github.com
+b) Pulse el bot´on verde que aparece en pantalla
+c) Introduzca como Nombre de Usuario su alu??????????
+d) Introduzca su direcci´on de correo electr´onico institucional: alu??????????@ull.edu.es
+e) Introduzca su contrase˜na
+f ) Pulse el bot´on verde para crear la cuenta
+g) Acceda al correo electr´onico institucional y verifique la cuenta creada
+47. Muestre el ´arbol de directorios de su home (tree).
+48. Compruebe si existe el directorio .ssh (cd ~/.ssh).
+49. Si la respuesta es “No existe tal directorio” continue por el ejercicio 52.
+50. Si la respuesta es afirmativa, cree un directorio con nombre copia dentro del directorio .ssh
+(mkdir ~/.ssh/copia).
+51. Mueva la pareja de clave-p´ublica clave-privada al directorio copia
+(mv ~/.ssh/id_rsa* ~/.ssh/copia/).
+52. Genere una nueva pareja de clave-p´ublica clave-privada en el directorio .ssh
+(ssh-keygen -t ed25519 -C "alu??????????.edu.es").
+Para usar las opciones por defecto, a cada pregunta responda pulsando la tecla de retorno de carro.
+53. Lance el agente (eval "$(ssh-agent -s)").
+54. A˜nada su clave privada al agente ssh (ssh-add ~/.ssh/id_ed25519).
+55. Muestre por la consola la clave-p´ublica que ha generado (cat ~/.ssh/id_ed25519.pub)
+56. Copie en el almacenamiento temporal la clave-p´ublica. Para ello, m´arquela con el rat´on y pulse las teclas
+Ctrl+C.
+5
+57. A˜nada su clave-p´ublica a GitHub.
+a) En la barra de usuario, en la esquina superior derecha de la p´agina, haga clik en el icono de
+“Configuraci´on de la cuenta” (Account Settings).
+b) En la barra de opciones que aparece en a la izquierda haga clik en la etiqueta “Claves SSH” (SSH
+Keys).
+c) Haga clik en el bot´on “Add SSH key” que aparece a la derecha.
+d) En el campo de texto T´ıtulo (Title) escriba IaaSULL
+e) En el ´area de texto Clave (Key) pegue (Ctrl+V) la clave que copi´o en el ejercicio 56.
+f ) Pulse el bot´on verde para crear la clave (Add key).
+58. Compruebe la conexi´on shh (ssh -T git@github.com) y en caso afirmativo responda “yes”.
+59. Cree un repositorio en GitHub
+a) En la barra de usuario, en la esquina superior derecha de la p´agina, haga clik en el icono de “Crear
+un repositorio nuevo” (Create a New Repo).
+b) Introduzca el nombre prct01
+c) Seleccione que quiere hacer el repositorio p´ublico.
+d) no seleccione la casilla de crear el fichero readme.md.
+e) Pulse el bot´on para crear el repositorio (Create repository)
+f ) Copie la direcci´on “ssh” del repositorio (Ctrl+C)
+60. Cree un repositorio remoto con nombre corto ghp01
+( git remote add ghp01 git@github.com:alu??????????/prct01.git )
+61. Empuje los cambios en el repositorio remoto denominado ghp01.
+( git push -u ghp01 master )
+62. Muestre los detalles del repositorio remoto denominado ghp01. ( git remote show ghp01 )
+63. Muestre los repositorios remotos que est´an definidos. ( git remote -v )
+64. Acepte la invitaci´on para realizar la tarea en GitHub Classroom.
+( https://classroom.github.com/a/OO_JOxAF )
+65. Cree un grupo con un ´unico miembro con nombre: Nombre-Apellido-alu??????????
+( Nombre-Apellido-alu?????????? )
+66. Cree un enlace al repositorio remoto privado creado en al organizaci´on LPP2425 denominado rpp01.
+( git remote add rpp01 git@github.com:ULL-ESIT-LPP-2425/01-fundamentos-git-github-Nombre-Apellido-alu??????????.git )
+67. Muestre los repositorios remotos que est´an definidos. ( git remote -v )
+68. Empuje los cambios en el repositorio remoto denominado rpp01. ( git push -u rpp01 master )
+69. Muestre los detalles del repositorio remoto denominado rpp01. ( git remote show rpp01 )
+70. Muestre los repositorios remotos que est´an definidos. ( git remote -v )
+71. Solicite el “GitHub Student Developer Pack” en ( https://education.github.com/pack )
+72. Escriba las direcciones http de los repositorios p´ublico y privado que ha creado en la tarea habilitada
+en el campus virtual. Los enlaces deben ser navegables.
+73. Cierre la sesi´on.
+6
